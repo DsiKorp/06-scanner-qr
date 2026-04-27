@@ -2,10 +2,10 @@
 
 <ion-content [fullscreen]="true">
 
-    <swiper-container>
+    <swiper-container allow-slide-prev="false" allow-slide-next="false">
 
         <swiper-slide>
-            <ion-button (click)="scan()" expand="full" fill="outline" shape="round">
+            <ion-button (click)="scan()" expand="full" fill="outline" shape="round" size="large">
                 Scan QR/Bar Code
             </ion-button>
         </swiper-slide>

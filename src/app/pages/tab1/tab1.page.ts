@@ -23,6 +23,7 @@ export class Tab1Page {
 
   ionViewWillEnter() {
     console.log('ionViewWillEnter event fired');
+    this.scan()
   };
 
   ionViewWillLeave() {
