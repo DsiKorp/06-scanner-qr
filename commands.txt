@@ -1,0 +1,8 @@
+ionic cordova plugin add phonegap-plugin-barcodescanner
+npm i phonegap-plugin-barcodescanner
+
+npm install @ionic-native/core --legacy-peer-deps
+npm install @ionic-native/barcode-scanner --legacy-peer-deps
+
+npm install swiper --legacy-peer-deps
+

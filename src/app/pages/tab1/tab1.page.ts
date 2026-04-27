@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() { }
+  constructor(
+    private barcodeScanner: BarcodeScanner
+  ) { }
 
   ionViewDidEnter() {
     console.log('ionViewDidEnter event fired');
@@ -25,5 +28,13 @@ export class Tab1Page {
   ionViewWillLeave() {
     console.log('ionViewWillLeave event fired');
   };
+
+  scan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+    }).catch(err => {
+      console.log('Error', err);
+    });
+  }
 
 }
