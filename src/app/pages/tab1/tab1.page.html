@@ -5,6 +5,16 @@
     <swiper-container allow-slide-prev="false" allow-slide-next="false">
 
         <swiper-slide>
+            <!-- Camera preview container -->
+            <div class="camera-container">
+                <video #videoElement class="video-element" autoplay playsinline muted></video>
+                <canvas #canvasElement class="canvas-element"></canvas>
+            </div>
+
+            <div *ngIf="scanResult" class="scan-result">
+                <p>Result: {{ scanResult }}</p>
+            </div>
+
             <ion-button (click)="scan()" expand="full" fill="outline" shape="round" size="large">
                 Scan QR/Bar Code
             </ion-button>

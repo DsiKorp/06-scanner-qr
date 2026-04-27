@@ -6,3 +6,4 @@ npm install @ionic-native/barcode-scanner --legacy-peer-deps
 
 npm install swiper --legacy-peer-deps
 
+npx cap run android
