@@ -8,6 +8,22 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor() { }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter event fired');
+  };
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave event fired');
+  };
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter event fired');
+  };
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave event fired');
+  };
 
 }
