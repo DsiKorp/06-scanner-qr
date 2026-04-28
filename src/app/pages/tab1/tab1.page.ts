@@ -15,6 +15,7 @@ export class Tab1Page {
 
   scanResult: string | null = null;
   scanning: boolean = false;
+  scanCancelled: boolean = false;
   private video: HTMLVideoElement | null = null;
   private canvas: HTMLCanvasElement | null = null;
   private animationFrame: number | null = null;
@@ -36,6 +37,9 @@ export class Tab1Page {
 
   async startCamera() {
     try {
+      // Reset scan cancelled flag when starting camera
+      this.scanCancelled = false;
+
       // Request camera permission
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment' } // Use back camera
@@ -57,6 +61,9 @@ export class Tab1Page {
   }
 
   async stopCamera() {
+    // Mark scan as cancelled when leaving the view
+    this.scanCancelled = true;
+
     if (this.video) {
       const stream = this.video.srcObject as MediaStream;
       if (stream) {
@@ -71,6 +78,10 @@ export class Tab1Page {
   }
 
   detectQRCode() {
+    if (this.scanCancelled) {
+      return;
+    }
+
     if (this.video && this.canvas && this.video.readyState === this.video.HAVE_ENOUGH_DATA) {
       this.canvas.height = this.video.videoHeight;
       this.canvas.width = this.video.videoWidth;
@@ -86,6 +97,10 @@ export class Tab1Page {
           this.ngZone.run(() => {
             this.scanResult = code.data;
             console.log('QR Code detected:', code.data);
+
+            // Save to history
+            this.dataLocalService.saveRegistry('QR_CODE', code.data);
+
             alert('Scanned: ' + code.data);
           });
           this.scanning = false;

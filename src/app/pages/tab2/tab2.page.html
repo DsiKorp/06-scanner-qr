@@ -1,5 +1,26 @@
 <app-header title="QR History"></app-header>
 
 <ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-item detail *ngFor="let registry of dataLocalService.savedRegistries" (click)="openRegister(registry)">
+            <ion-icon slot="start" [name]="registry.icon" color="primary"></ion-icon>
+            <ion-label>
+                <h2>{{ registry.text }}</h2>
+                <p>{{ registry.created | date:'yyyy-MM-dd HH:mm:ss' }}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size-md="6" offset-md="3">
+                <ion-button expand="block" fill="solid" shape="round" (click)="sendEmail()" class="send-btn">
+                    <ion-text>Send email</ion-text>
+                    <ion-icon slot="end" name="send"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
 
 </ion-content>
