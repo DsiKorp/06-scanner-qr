@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
 import jsQR, { QRCode } from 'jsqr';
+import { DataLocalService } from 'src/app/services/data-local-service';
 
 @Component({
   selector: 'app-tab1',
@@ -18,7 +19,10 @@ export class Tab1Page {
   private canvas: HTMLCanvasElement | null = null;
   private animationFrame: number | null = null;
 
-  constructor(private ngZone: NgZone) { }
+  constructor(
+    private ngZone: NgZone,
+    private dataLocalService: DataLocalService
+  ) { }
 
   async ionViewWillEnter() {
     console.log('ionViewWillEnter event fired');
