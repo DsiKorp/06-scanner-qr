@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package io.ionic.scanner.dski;
 
 import com.getcapacitor.BridgeActivity;
 
