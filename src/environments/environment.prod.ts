@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  mapbox: 'pk.eyJ1IjoiZHNpa29ycCIsImEiOiJjbW9qYTkyYTcwMHFmMnNwdGNnYXBuNnUwIn0.Lx_69TmYCSweLCwdEEmURg'
 };

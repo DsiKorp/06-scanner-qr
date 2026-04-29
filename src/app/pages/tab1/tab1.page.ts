@@ -99,7 +99,9 @@ export class Tab1Page {
             console.log('QR Code detected:', code.data);
 
             // Save to history
-            this.dataLocalService.saveRegistry('QR_CODE', code.data);
+            //this.dataLocalService.saveRegistry('QR_CODE', code.data);
+            this.dataLocalService.saveRegistry('QR_CODE', 'geo:40.73151796986687,-74.06087294062502');
+
 
             alert('Scanned: ' + code.data);
           });

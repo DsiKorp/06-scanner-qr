@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { NavController, ToastController } from '@ionic/angular';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 import { Registry } from '../models/registry.model';
 
@@ -15,7 +16,8 @@ export class DataLocalService {
   constructor(
     private storage: Storage,
     private toastCtrl: ToastController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private inAppBrowser: InAppBrowser
   ) {
     this.init();
     this.loadRegistries();
@@ -37,6 +39,8 @@ export class DataLocalService {
     console.log(this.savedRegistries);
 
     this.storage.set('registries', this.savedRegistries);
+    this.presentToast('Registry saved successfully!');
+    this.openRegistry(newRegistry);
   }
 
   async loadRegistries(): Promise<Registry[]> {
@@ -61,15 +65,16 @@ export class DataLocalService {
     this.navCtrl.navigateForward('/tabs/tab2');
 
     switch (registry.type) {
-      case 'http':
-        window.open(registry.text, '_blank');
+      case 'url':
+        this.inAppBrowser.create(registry.text, '_system'); // _system
         break;
       case 'geo':
-        const [lat, lng] = registry.text.split(',').map(coord => parseFloat(coord.trim()));
-        window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
+        //const [lat, lng] = registry.text.split(',').map(coord => parseFloat(coord.trim()));
+        //this.inAppBrowser.create(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, '_blank');
+        this.navCtrl.navigateForward(`/tabs/tab2/map/${registry.text}`);
         break;
       case 'email':
-        window.open(`mailto:${registry.text}`, '_blank');
+        this.inAppBrowser.create(`mailto:${registry.text}`, '_blank');
         break;
       default:
         console.warn('Unknown registry type:', registry.type);

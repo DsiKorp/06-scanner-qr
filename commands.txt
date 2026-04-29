@@ -5,5 +5,32 @@ npm install @ionic-native/core --legacy-peer-deps
 npm install @ionic-native/barcode-scanner --legacy-peer-deps
 
 npm install swiper --legacy-peer-deps
+No sirve
+ionic cordova plugin add cordova-plugin-inappbrowser
+Remplazo:
+npm i cordova-plugin-inappbrowser --legacy-peer-deps
+npm install @awesome-cordova-plugins/in-app-browser --legacy-peer-deps
+npm install @awesome-cordova-plugins/core --legacy-peer-deps
+
+https://github.com/DsiKorp/04-ionic-news
+
+ionic g s services/news --skip-tests
+
+ionic g m components --dry-run
+
+npm install cordova-plugin-inappbrowser
+Dañado:
+npm install @ionic-native/in-app-browser
+npm i @ionic-native/in-app-browser
+
+remplazo:
+npm install @awesome-cordova-plugins/in-app-browser @awesome-cordova-plugins/core
+ionic cap sync
+
+ionic capacitor add android
+ionic capacitor copy android
+
+ionic capacitor build android
+ionic capacitor run android
 
 npx cap run android

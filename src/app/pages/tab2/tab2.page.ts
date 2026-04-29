@@ -17,7 +17,7 @@ export class Tab2Page {
   }
 
   openRegister(registry: Registry) {
-    console.log('open');
+    console.log('openRegister');
     this.dataLocalService.openRegistry(registry);
   }
 
