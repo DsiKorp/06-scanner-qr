@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  mapbox: ''
+  mapbox: '' // Se inyecta automáticamente desde .env
 };
