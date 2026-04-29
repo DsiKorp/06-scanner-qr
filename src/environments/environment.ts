@@ -6,7 +6,7 @@ import { map } from "rxjs";
 
 export const environment = {
   production: false,
-  mapbox: 'pk.eyJ1IjoiZHNpa29ycCIsImEiOiJjbW9qYTkyYTcwMHFmMnNwdGNnYXBuNnUwIn0.Lx_69TmYCSweLCwdEEmURg'
+  mapbox: ''
 };
 
 /*
