@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  mapbox: '' // Se inyecta automáticamente desde .env
+  mapbox: process.env['MAPBOX_TOKEN'] || '' // Se inyecta automáticamente desde .env
 };

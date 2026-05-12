@@ -14,6 +14,7 @@ export class Tab2Page {
 
   sendEmail() {
     console.log('Send email');
+    this.dataLocalService.sendEmail();
   }
 
   openRegister(registry: Registry) {
