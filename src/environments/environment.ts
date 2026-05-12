@@ -6,7 +6,6 @@ import { map } from "rxjs";
 
 export const environment = {
   production: false,
-  mapbox: process.env['MAPBOX_TOKEN'] || '' // Se inyecta automáticamente desde .env
 };
 
 /*
