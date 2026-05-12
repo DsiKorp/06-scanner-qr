@@ -34,3 +34,11 @@ ionic capacitor build android
 ionic capacitor run android
 
 npx cap run android
+ionic cordova run android -l
+
+
+
+npm i cordova-plugin-file --legacy-peer-deps
+npm i @ionic-native/file --legacy-peer-deps
+npm i cordova-plugin-email-composer --legacy-peer-deps
+npm install @ionic-native/email-composer  --legacy-peer-deps

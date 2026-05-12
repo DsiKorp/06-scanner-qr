@@ -26,10 +26,10 @@ export class MapPage implements OnInit, AfterViewInit {
 
     geo = geo?.substring(4) || ''; // Remove 'geo:' prefix
     const geoArray = geo.split(','); // Latitude and longitude are separated by a comma
-    //this.lat = parseFloat(geoArray[0]);
-    //this.lng = parseFloat(geoArray[1]);
-    this.lat = parseFloat('4.6049377');
-    this.lng = parseFloat('-74.0670127');
+    this.lat = parseFloat(geoArray[0]);
+    this.lng = parseFloat(geoArray[1]);
+    //this.lat = parseFloat('4.6049377');
+    //this.lng = parseFloat('-74.0670127');
 
     console.log('Parsed coordinates:', this.lat, this.lng);
 

@@ -1,8 +1,10 @@
-<app-header title="Map"></app-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/tabs/tab2"></ion-back-button>
+    <ion-title>Map</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <div id="map"></div>
-
-  <ion-back-button defaultHref="/tabs/tab2" text=" " class="boton-regresar" icon="close-circle"></ion-back-button>
-
 </ion-content>
